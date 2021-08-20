@@ -1,0 +1,95 @@
+%% 544 %% This is the template used for VGTC submissions. I have removed
+%% 544 %% some of the comments and other commands to make it more clear.
+%% 544 %% Coments I created are labeled with %% 544 %%
+
+\documentclass[journal]{vgtc}                % final (journal style)
+
+\ifpdf%                                % if we use pdflatex
+  \pdfoutput=1\relax                   % create PDFs from pdfLaTeX
+  \pdfcompresslevel=9                  % PDF Compression
+  \pdfoptionpdfminorversion=7          % create PDF 1.7
+  \ExecuteOptions{pdftex}
+  \usepackage{graphicx}                % allow us to embed graphics files
+  \DeclareGraphicsExtensions{.pdf,.png,.jpg,.jpeg} % for pdflatex we expect .pdf, .png, or .jpg files
+\else%                                 % else we use pure latex
+  \ExecuteOptions{dvips}
+  \usepackage{graphicx}                % allow us to embed graphics files
+  \DeclareGraphicsExtensions{.eps}     % for pure latex we expect eps files
+\fi%
+
+%% it is recomended to use ``\autoref{sec:bla}'' instead of ``Fig.~\ref{sec:bla}''
+\graphicspath{{figures/}{pictures/}{images/}{./}} % where to search for the images
+
+\usepackage{microtype}                 % use micro-typography (slightly more compact, better to read)
+\PassOptionsToPackage{warn}{textcomp}  % to address font issues with \textrightarrow
+\usepackage{textcomp}                  % use better special symbols
+\usepackage{mathptmx}                  % use matching math font
+\usepackage{times}                     % we use Times as the main font
+\renewcommand*\ttdefault{txtt}         % a nicer typewriter font
+\usepackage{cite}
+
+
+\onlineid{0}
+
+%% 544 %% Paper title - 1 pt for descriptive title
+\title{The title for your project.}
+
+
+%% 544 %% 1 pt for name
+\author{Your Name(s) Here}
+\authorfooter{
+%% insert punctuation at end of each item
+\item
+ Your Name is a graduate student at the University of Arizona. E-mail:[your
+ NetID]@email.arizona.edu.
+}
+
+
+%% 544 %% Abstract section - 5 pts
+\abstract{
+Abstract goes here. Summarize the project, why it is important, what you
+plan to do, and what the community may learn from this in 150-250 words.
+
+} 
+
+%% Uncomment below to include a teaser figure.
+%% 544 %% The teaser figure is the image that goes before the abstract. It is
+%% 544 %% common in visualization papers, but uncommon in other kinds of
+%% 544 %% papers. You may include one with the first milestone. It is
+%% 544 %% recommended to include them in later project milestones.
+
+%   \teaser{
+%   \centering
+%   \includegraphics[width=16cm]{CypressView}
+%   \caption{In the Clouds: Vancouver from Cypress Mountain.}
+%  }
+
+
+\vgtcinsertpkg
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%% START OF THE PAPER %%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%% The ``\maketitle'' command must be the first command after the
+%% ``\begin{document}'' command. It prepares and prints the title block.
+
+%% the only exception to this rule is the \firstsection command
+\firstsection{Introduction} %% 544 %%  or "Motivation"
+
+\maketitle
+
+\input{intro} 
+
+\input{background}
+
+\input{research}
+
+\input{impact}
+
+\bibliographystyle{abbrv-doi-hyperref}
+\bibliography{proposal}
+\end{document}
+
